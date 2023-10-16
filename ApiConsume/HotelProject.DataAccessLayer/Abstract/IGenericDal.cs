@@ -11,7 +11,7 @@ namespace HotelProject.DataAccessLayer.Abstract
         void Insert(T t);
         void Delete(T t);
         void Update(T t);
-        List<T> TGetList();
+        List<T> GetList();
         T GetByID(int id);
 
     }
