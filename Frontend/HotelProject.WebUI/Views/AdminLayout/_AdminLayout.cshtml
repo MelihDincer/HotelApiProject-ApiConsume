@@ -21,12 +21,19 @@
         @await Html.PartialAsync("/Views/AdminLayout/SidebarPartial.cshtml")
 
         <div class="content-body">
+
             <div class="container-fluid">
-
-                @RenderBody()
-
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                @RenderBody()
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>  
+        </div>
 
         @await Html.PartialAsync("/Views/AdminLayout/FooterPartial.cshtml")
 
