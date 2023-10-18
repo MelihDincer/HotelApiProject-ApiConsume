@@ -26,6 +26,16 @@ builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 
+//Bir API'ýn baþka kaynaklar tarafýndan consume(tüketilmesi) edilmesini saðlayan metod.
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("OtelApiCors", opts =>
+    {
+        //Consume edilecek kaynak ile ilgili alanlar tutulacak
+        opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); //Herhangi bir kaynaða,baþlýða,metoda izin ver.
+    });
+}); 
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -38,7 +48,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("OtelApiCors");
 app.UseAuthorization();
 
 app.MapControllers();
