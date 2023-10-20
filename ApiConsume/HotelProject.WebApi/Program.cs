@@ -26,6 +26,9 @@ builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 
+builder.Services.AddScoped<IAboutDal, EfAboutDal>();
+builder.Services.AddScoped<IAboutService, AboutManager>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 //Bir API'ýn baþka kaynaklar tarafýndan consume(tüketilmesi) edilmesini saðlayan metod.
 builder.Services.AddCors(opt =>
