@@ -1,0 +1,56 @@
+﻿@model List<ResultBookingDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+
+
+
+<h4>Rezervasyonlar</h4>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Misafir</th>
+                <th>Giriş Tarihi</th>
+                <th>Çıkış Tarihi</th>
+                <th>Durum</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td>@item.Name</td>
+                    <td>@(((DateTime)item.CheckIn).ToString("dd MMM yyyy"))</td>
+                    <td>@(((DateTime)item.CheckOut).ToString("dd MMM yyyy"))</td>
+                    <td><span class="badge badge-primary px-2">@item.Status</span></td>
+
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <small>Seçiniz</small>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="btn btn-success dropdown-item" href="/BookingAdmin/ApprovedReservation/@item.BookingID/">Onayla</a>
+                                <a class="btn btn-danger dropdown-item" href="#" onclick="return confirm('Bu rezervasyonu iptal etmek isteğinize emin misiniz?')">İptal Et</a>
+                                <a class="btn btn-warning dropdown-item" href="#">Beklet</a>
+                                <a class="btn btn-primary dropdown-item" href="#">Güncelle</a>
+                                <a class="btn btn-dark dropdown-item" href="#">Detaylar</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
