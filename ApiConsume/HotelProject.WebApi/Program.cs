@@ -32,6 +32,9 @@ builder.Services.AddScoped<IAboutService, AboutManager>();
 builder.Services.AddScoped<IBookingDal, EfBookingDal>();
 builder.Services.AddScoped<IBookingService, BookingManager>();
 
+builder.Services.AddScoped<IContactDal, EfContactDal>();
+builder.Services.AddScoped<IContactService, ContactManager>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 //Bir API'ýn baþka kaynaklar tarafýndan consume(tüketilmesi) edilmesini saðlayan metod.
 builder.Services.AddCors(opt =>
