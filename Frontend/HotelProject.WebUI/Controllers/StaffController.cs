@@ -27,7 +27,6 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
-        //End
 
         [HttpGet]
         public IActionResult AddStaff()
