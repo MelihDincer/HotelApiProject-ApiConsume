@@ -14,7 +14,7 @@ namespace HotelProject.WebApi.Controllers
         public ContactController(IContactService contactService)
         {
             _contactService = contactService;
-        }
+        }       
 
         [HttpPost]
         public IActionResult SendMessage(Contact contact)
@@ -24,5 +24,18 @@ namespace HotelProject.WebApi.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        public IActionResult InboxListContact()
+        {
+            var values = _contactService.TGetList();
+            return Ok(values);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetSendMessage(int id)
+        {
+            var value = _contactService.TGetByID(id);
+            return Ok(value);
+        }
     }
 }
