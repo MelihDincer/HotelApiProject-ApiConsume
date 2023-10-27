@@ -33,6 +33,13 @@ builder.Services.AddMvc(config =>
     config.Filters.Add(new AuthorizeFilter(policy));
 });
 
+//Login Path
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromSeconds(10); //10 saniye sonra oturum düþsün.
+    options.LoginPath = "/Login/Index/";
+});
 
 var app = builder.Build();
 
