@@ -37,7 +37,7 @@ builder.Services.AddMvc(config =>
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromSeconds(10); //10 saniye sonra oturum düþsün.
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(10); //10 dakika sonra oturum düþsün.
     options.LoginPath = "/Login/Index/";
 });
 
@@ -51,6 +51,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -62,6 +63,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Staff}/{action=Index}/{id?}");
+    pattern: "{controller=Default}/{action=Index}/{id?}");
 
 app.Run();
