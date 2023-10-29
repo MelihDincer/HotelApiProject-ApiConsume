@@ -3,6 +3,7 @@ using HotelProject.BusinessLayer.Concrete;
 using HotelProject.DataAccessLayer.Abstract;
 using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.DataAccessLayer.EntityFramework;
+using HotelProject.EntityLayer.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +45,9 @@ builder.Services.AddScoped<ISendMessageService, SendMessageManager>();
 builder.Services.AddScoped<IMessageCategoryDal, EfMessageCategoryDal>();
 builder.Services.AddScoped<IMessageCategoryService, MessageCategoryManager>();
 
+builder.Services.AddScoped<IWorkLocationDal, EfWorkLocationDal>();
+builder.Services.AddScoped<IWorkLocationService, WorkLocationManager>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 //Bir API'ýn baþka kaynaklar tarafýndan consume(tüketilmesi) edilmesini saðlayan metod.
 builder.Services.AddCors(opt =>
@@ -53,7 +57,7 @@ builder.Services.AddCors(opt =>
         //Consume edilecek kaynak ile ilgili alanlar tutulacak
         opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); //Herhangi bir kaynaða,baþlýða,metoda izin ver.
     });
-}); 
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
