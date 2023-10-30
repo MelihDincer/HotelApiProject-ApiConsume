@@ -48,6 +48,9 @@ builder.Services.AddScoped<IMessageCategoryService, MessageCategoryManager>();
 builder.Services.AddScoped<IWorkLocationDal, EfWorkLocationDal>();
 builder.Services.AddScoped<IWorkLocationService, WorkLocationManager>();
 
+builder.Services.AddScoped<IAppUserDal, EfAppUserDal>();
+builder.Services.AddScoped<IAppUserService, AppUserManager>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 //Bir API'ýn baþka kaynaklar tarafýndan consume(tüketilmesi) edilmesini saðlayan metod.
 builder.Services.AddCors(opt =>
@@ -58,6 +61,11 @@ builder.Services.AddCors(opt =>
         opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); //Herhangi bir kaynaða,baþlýða,metoda izin ver.
     });
 });
+
+builder.Services.AddControllersWithViews()
+    .AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
