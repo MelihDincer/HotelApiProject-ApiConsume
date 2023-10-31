@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllersWithViews().AddFluentValidation();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
 builder.Services.AddHttpClient();
@@ -17,7 +18,7 @@ builder.Services.AddHttpClient();
 //FluentValidation un kullanýlmasý için AddFluentValidation metodunun geçilmesi.
 builder.Services.AddTransient<IValidator<CreateGuestDto>, CreateGuestValidator>();
 builder.Services.AddTransient<IValidator<UpdateGuestDto>, UpdateGuestValidator>();
-builder.Services.AddControllersWithViews().AddFluentValidation();
+
 //------------------------------------------------------------------------------
 
 //AutoMapper kullanýlmasý için burada belirtmemiz gerekti.
@@ -37,7 +38,7 @@ builder.Services.AddMvc(config =>
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(10); //10 dakika sonra oturum düþsün.
+    options.ExpireTimeSpan = TimeSpan.FromDays(3); //3 GÜN sonra oturum düþsün.
     options.LoginPath = "/Login/Index/";
 });
 
