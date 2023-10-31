@@ -1,0 +1,14 @@
+﻿@model AddRoleViewModel
+@{
+    ViewData["Title"] = "AddRole";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h2>Rol Ekleme Sayfası</h2>
+<form method="post">
+    <label>Rol Adı</label>
+    <input type="text" asp-for="RoleName" class="form-control" />   
+    <br />
+    <button class="btn btn-rounded btn-outline-success">Kaydet</button>
+</form>
+
