@@ -25,8 +25,8 @@ namespace RapidApiConsume.Controllers
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
                 apiMovieViewModels = JsonConvert.DeserializeObject<List<ApiMovieViewModel>>(body);
-            }
-            return View(apiMovieViewModels);
+                return View(apiMovieViewModels);
+            }          
         }
     }
 }
