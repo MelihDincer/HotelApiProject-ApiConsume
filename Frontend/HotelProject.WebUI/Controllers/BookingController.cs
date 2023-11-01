@@ -26,6 +26,7 @@ namespace HotelProject.WebUI.Controllers
             return PartialView();
         }
 
+        // Ziyaretçinin Rezervasyon Oluşturma İşlemi
         [HttpPost]
         public async Task<IActionResult> AddBooking(CreateBookingDto createBookingDto)
         {
