@@ -6,10 +6,8 @@
     int count = 0;
 }
 
-
-
-
-<h4>Rezervasyonlar</h4>
+<h2>Rezervasyonlar</h2>
+<br />
 <div class="table-responsive">
     <table class="table">
         <thead>
@@ -40,10 +38,10 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="btn btn-success dropdown-item" href="/BookingAdmin/ApprovedReservation/@item.BookingID/">Onayla</a>
-                                <a class="btn btn-danger dropdown-item" href="#" onclick="return confirm('Bu rezervasyonu iptal etmek isteğinize emin misiniz?')">İptal Et</a>
-                                <a class="btn btn-warning dropdown-item" href="#">Beklet</a>
-                                <a class="btn btn-primary dropdown-item" href="#">Güncelle</a>
-                                <a class="btn btn-dark dropdown-item" href="#">Detaylar</a>
+                                <a class="btn btn-danger dropdown-item" href="/BookingAdmin/CancelReservation/@item.BookingID/" onclick="return confirm('Bu rezervasyonu iptal etmek isteğinize emin misiniz?')">İptal Et</a>
+                                <a class="btn btn-warning dropdown-item" href="/BookingAdmin/WaitReservation/@item.BookingID/">Beklet</a>
+                                <a class="btn btn-primary dropdown-item" href="/BookingAdmin/UpdateBooking/@item.BookingID/">Güncelle</a>
+                                <a class="btn btn-dark dropdown-item" href="/BookingAdmin/UpdateBooking/@item.BookingID/">Detaylar</a>
                             </div>
                         </div>
                     </td>
