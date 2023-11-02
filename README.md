@@ -2,7 +2,7 @@
 #### Merhaba, bu projemizde bir otel rezervasyon sistemi yapmaya çalıştık. Projede eksik bölümler zamanla tamamlanacak olup, geliştirilmeye açık bir projedir.
 Bu projede değinilen ve uygulanan konular aşağıdaki listede yer almaktadır. Proje içi güncel ekran görüntülerinin büyük bir kısmına aşağıdaki açıklamanın sonunda ulaşabilirsiniz.
 ### **Proje İçeriği**
-#### Projede, çeşitli odaların listelendiği, siteyi ziyaret eden kişilerin sisteme abone olmaları ve  yetkili kişinin(admin) sayfa içerisinde çeşitli CRUD ve özel listeleme işlemlerini yapabildiği bir admin paneli arayüzü olmak üzere toplamda 2 arayüz bulunmaktadır.
+#### Projede, çeşitli odaların listelendiği, siteyi ziyaret eden kişilerin sisteme abone olmaları ve  yetkili kişinin(admin) sayfa içerisinde çeşitli CRUD ve özel listeleme işlemlerini yapabildiği bir admin paneli arayüzü olmak üzere toplamda 2 arayüz bulunmaktadır. 
 
 *Bu Proje İçerisindeki Konu Başlıkları:*
 ####  Asp.Net Core Api, Asp.Net, Identity, Swagger, Postman, Api Consume, Rapid Api ve Api Consume, Json Web Token (JWT), Login, Register, Auto Mapper, Fluent Validation, N Tier Architecture, Data Transfer Object (DTO), Mvc, Entity Framework Core, Repository Design Pattern ve Mail Gönderme İşlemleri
