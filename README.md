@@ -1,4 +1,4 @@
-## **Hotelier Otel Projesi**
+## **Otel Rezervasyon Projesi**
 #### Merhaba, bu projemizde bir otel rezervasyon sistemi yapmaya çalıştık. Projede eksik bölümler zamanla tamamlanacak olup, geliştirilmeye açık bir projedir.
 Bu projede değinilen ve uygulanan konular aşağıdaki listede yer almaktadır. Proje içi güncel ekran görüntülerinin büyük bir kısmına aşağıdaki açıklamanın sonunda ulaşabilirsiniz.
 ### **Proje İçeriği**
